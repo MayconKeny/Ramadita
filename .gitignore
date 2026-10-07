@@ -9,3 +9,4 @@ build/
 *.log
 .env
 application-local.properties
+application.properties
