@@ -1,0 +1,11 @@
+*.zip
+target/
+node_modules/
+dist/
+build/
+.idea/
+.vscode/
+*.iml
+*.log
+.env
+application-local.properties

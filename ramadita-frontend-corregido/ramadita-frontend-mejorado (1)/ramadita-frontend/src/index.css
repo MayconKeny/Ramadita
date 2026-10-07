@@ -1,0 +1,225 @@
+/* ============================================================
+   LA RAMADITA — Sistema de Gestion
+   Identidad: marisqueria de puerto, elegante y calida.
+   Paleta "Marea": tonos de oceano profundo + acento coral.
+   Tipografia: Fraunces (display) + Inter (datos/UI).
+   ============================================================ */
+
+:root {
+  /* Marea -- paleta */
+  --tide-900: #0b3640;   /* oceano profundo -- sidebar, headers oscuros */
+  --tide-700: #124a54;   /* variante para hovers oscuros */
+  --lagoon:   #13818c;   /* acento principal -- botones, activos, precios */
+  --lagoon-light: #e3f2f1; /* tinte suave para hovers/fondos de acento */
+  --coral:    #e2693f;   /* acento calido -- urgente, destacado */
+  --coral-light: #fdece4;
+  --sand:     #f6f3ec;   /* fondo general de la app */
+  --paper:    #ffffff;   /* tarjetas */
+  --line:     #e4e1d6;   /* bordes suaves sobre sand/paper */
+  --line-soft:#efece2;
+  --ink:      #16302e;   /* texto principal */
+  --muted:    #7c8f8a;   /* texto secundario */
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+
+  --radius-lg: 14px;
+  --radius-md: 10px;
+  --radius-sm: 7px;
+  --shadow-card: 0 1px 3px rgba(11,54,64,0.06), 0 1px 2px rgba(11,54,64,0.04);
+  --shadow-lift: 0 8px 24px rgba(11,54,64,0.12);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--sand);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.app { display: flex; height: 100vh; }
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  width: 226px;
+  background: linear-gradient(185deg, var(--tide-900) 0%, #0e2d34 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  box-shadow: 2px 0 12px rgba(0,0,0,0.12);
+}
+.sidebar-header { padding: 22px 18px 18px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.sidebar-logo { font-size: 10px; letter-spacing: 2.5px; color: var(--coral); text-transform: uppercase; font-weight: 600; }
+.sidebar-title { font-family: var(--font-display); font-size: 21px; font-weight: 600; color: white; line-height: 1.2; margin-top: 5px; }
+.sidebar-sub { font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 3px; letter-spacing: 0.3px; }
+.nav-section { padding: 14px 18px 5px; font-size: 10px; letter-spacing: 1.5px; color: rgba(255,255,255,0.35); text-transform: uppercase; }
+.nav-item { display: flex; align-items: center; gap: 10px; padding: 10px 16px; cursor: pointer; border-radius: 8px; margin: 2px 8px; font-size: 13px; color: rgba(255,255,255,0.68); border: none; background: none; width: calc(100% - 16px); text-align: left; transition: all 0.15s; }
+.nav-item:hover { background: rgba(255,255,255,0.08); color: white; }
+.nav-item.active { background: var(--lagoon); color: white; font-weight: 600; box-shadow: 0 2px 8px rgba(19,129,140,0.4); }
+
+/* ---------- Content / Topbar ---------- */
+.content { flex: 1; overflow-y: auto; background: var(--sand); }
+.topbar {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 26px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 10;
+}
+.topbar-title { font-family: var(--font-display); font-size: 19px; font-weight: 600; color: var(--tide-900); }
+.topbar-date { font-size: 13px; color: var(--muted); text-transform: capitalize; }
+.page { padding: 22px 26px; }
+
+/* ---------- Stats ---------- */
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 22px; }
+.stat-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 16px 18px; box-shadow: var(--shadow-card); border-left: 3px solid var(--lagoon); }
+.stat-label { font-size: 11px; color: var(--muted); margin-bottom: 7px; text-transform: uppercase; letter-spacing: 0.6px; font-weight: 600; }
+.stat-value { font-family: var(--font-display); font-size: 27px; font-weight: 600; color: var(--tide-900); }
+.stat-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+/* ---------- Cards ---------- */
+.card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 18px 22px; margin-bottom: 16px; box-shadow: var(--shadow-card); }
+.card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
+.card-title { font-family: var(--font-display); font-size: 16px; font-weight: 600; color: var(--tide-900); }
+
+/* ---------- Buttons ---------- */
+.btn { padding: 8px 15px; border-radius: 7px; font-size: 13px; cursor: pointer; border: 1px solid var(--line); background: white; color: var(--ink); font-family: var(--font-body); font-weight: 500; transition: all 0.15s; }
+.btn:hover { background: var(--sand); border-color: #d5d1c2; }
+.btn-gold { background: var(--lagoon); color: white; border-color: var(--lagoon); font-weight: 600; }
+.btn-gold:hover { background: #0f6d76; border-color: #0f6d76; }
+.btn-danger { border-color: #f3b8a8; color: var(--coral); }
+.btn-danger:hover { background: var(--coral-light); }
+.btn-success { border-color: #86efac; color: #16a34a; }
+.btn-success:hover { background: #f0fdf4; }
+.btn-sm { padding: 5px 11px; font-size: 12px; }
+
+/* ---------- Tables ---------- */
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; padding: 9px 10px; font-size: 10.5px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; border-bottom: 1px solid var(--line); }
+td { padding: 11px 10px; border-bottom: 1px solid var(--line-soft); vertical-align: middle; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--lagoon-light); }
+
+/* ---------- Badges ---------- */
+.badge { display: inline-block; padding: 3px 9px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+.badge-pendiente { background: var(--coral-light); color: #b4491f; }
+.badge-preparando { background: #dbeef0; color: #0e5c64; }
+.badge-listo { background: #dcfce7; color: #15803d; }
+.badge-entregado { background: #f1efe6; color: #7c8f8a; }
+.badge-bajo { background: var(--coral-light); color: #c0391a; }
+.badge-ok { background: #dcfce7; color: #15803d; }
+.badge-inactivo { background: #f1efe6; color: #7c8f8a; }
+
+/* ---------- Forms ---------- */
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.form-group { display: flex; flex-direction: column; gap: 5px; }
+.form-label { font-size: 12px; color: var(--muted); font-weight: 600; }
+input[type=text], input[type=number], select {
+  padding: 9px 11px; border: 1px solid var(--line); border-radius: 7px;
+  font-size: 13px; font-family: var(--font-body); background: white; color: var(--ink);
+}
+input:focus, select:focus { outline: none; border-color: var(--lagoon); box-shadow: 0 0 0 3px var(--lagoon-light); }
+
+.order-item-row { display: grid; grid-template-columns: 1fr 80px 80px 30px; gap: 8px; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--line-soft); }
+.order-total { text-align: right; font-family: var(--font-display); font-size: 18px; font-weight: 600; margin-top: 10px; color: var(--tide-900); }
+.progress-bar { height: 6px; background: var(--line-soft); border-radius: 3px; margin-top: 4px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 3px; background: var(--lagoon); }
+
+.cocina-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.cocina-card { border: 1px solid var(--line); border-radius: var(--radius-md); padding: 15px; background: var(--paper); box-shadow: var(--shadow-card); }
+.cocina-card.urgente { border-color: var(--coral); border-width: 2px; box-shadow: 0 0 0 3px var(--coral-light); }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.alert-item { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--line-soft); font-size: 13px; }
+.alert-item:last-child { border-bottom: none; }
+.empty-msg { font-size: 13px; color: var(--muted); text-align: center; padding: 34px; }
+
+.toast { position: fixed; bottom: 20px; right: 20px; background: var(--tide-900); color: white; padding: 13px 20px; border-radius: 10px; font-size: 13px; z-index: 999; opacity: 0; transition: opacity 0.3s; pointer-events: none; box-shadow: var(--shadow-lift); }
+.toast.show { opacity: 1; }
+#loading { display: none; font-size: 12px; color: var(--lagoon); }
+
+/* ---------- Carta - grid de platos con fotos ---------- */
+.carta-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-bottom: 16px; }
+.plato-card { border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: var(--paper); cursor: pointer; transition: all 0.2s; position: relative; box-shadow: var(--shadow-card); }
+.plato-card:hover { border-color: var(--lagoon); box-shadow: var(--shadow-lift); transform: translateY(-2px); }
+.plato-card.inactivo { opacity: 0.5; }
+.plato-card img { width: 100%; height: 130px; object-fit: cover; display: block; background: var(--line-soft); }
+.plato-card-img-placeholder { width: 100%; height: 130px; background: linear-gradient(135deg, var(--tide-900), var(--lagoon)); display: flex; align-items: center; justify-content: center; font-size: 40px; }
+.plato-card-body { padding: 12px 14px; }
+.plato-card-nombre { font-family: var(--font-display); font-size: 14px; font-weight: 600; margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--tide-900); }
+.plato-card-desc { font-size: 11px; color: var(--muted); margin-bottom: 7px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 28px; }
+.plato-card-precio { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--lagoon); }
+.plato-card-cat { font-size: 10px; color: var(--coral); font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 3px; }
+.plato-card-actions { display: flex; gap: 6px; margin-top: 9px; }
+
+/* ---------- Selector de platos con fotos en Pedidos ---------- */
+.menu-selector-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; max-height: 340px; overflow-y: auto; padding: 5px; margin-bottom: 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--sand); }
+.menu-item-card { border: 2px solid var(--line); border-radius: 9px; overflow: hidden; cursor: pointer; transition: all 0.15s; background: var(--paper); }
+.menu-item-card:hover { border-color: var(--lagoon); transform: translateY(-1px); }
+.menu-item-card img { width: 100%; height: 90px; object-fit: cover; display: block; }
+.menu-item-placeholder { width: 100%; height: 90px; background: linear-gradient(135deg, var(--tide-900), var(--lagoon)); display: flex; align-items: center; justify-content: center; font-size: 28px; }
+.menu-item-info { padding: 7px 9px; }
+.menu-item-nombre { font-size: 12px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.menu-item-precio { font-size: 12px; color: var(--lagoon); font-weight: 700; }
+
+/* ---------- Modal editar/agregar plato ---------- */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(11,54,64,0.45); z-index: 100; align-items: center; justify-content: center; backdrop-filter: blur(2px); }
+.modal-overlay.open { display: flex; }
+.modal { background: var(--paper); border-radius: var(--radius-lg); padding: 26px; width: 480px; max-width: 95vw; max-height: 90vh; overflow-y: auto; box-shadow: var(--shadow-lift); }
+.modal-title { font-family: var(--font-display); font-size: 18px; font-weight: 600; margin-bottom: 17px; color: var(--tide-900); }
+.foto-preview { width: 100%; height: 160px; object-fit: cover; border-radius: 9px; display: block; margin-bottom: 10px; border: 1px solid var(--line); }
+.foto-preview-placeholder { width: 100%; height: 160px; background: linear-gradient(135deg, var(--tide-900), var(--lagoon)); border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 48px; margin-bottom: 10px; }
+
+/* ---------- Upload foto desde galeria ---------- */
+.upload-area { border: 2px dashed #cfd6c9; border-radius: 9px; padding: 18px; text-align: center; cursor: pointer; transition: all 0.2s; margin-bottom: 10px; }
+.upload-area:hover { border-color: var(--lagoon); background: var(--lagoon-light); }
+.upload-area input[type=file] { display: none; }
+
+/* ---------- Modal cobro ---------- */
+.pago-btn { flex: 1; padding: 15px 8px; border-radius: 9px; border: 2px solid var(--line); background: white; cursor: pointer; font-size: 13px; font-weight: 600; text-align: center; transition: all 0.15s; }
+.pago-btn.selected { border-color: var(--lagoon); background: var(--lagoon-light); color: var(--tide-900); }
+.pago-btn:hover { border-color: var(--lagoon); }
+.vuelto-box { background: #f0fdf4; border: 1px solid #86efac; border-radius: 9px; padding: 15px; text-align: center; margin-top: 12px; display: none; }
+.vuelto-monto { font-family: var(--font-display); font-size: 30px; font-weight: 700; color: #16a34a; }
+
+/* ---------- Caja page ---------- */
+.caja-metodo { display: flex; gap: 8px; align-items: center; padding: 11px 0; border-bottom: 1px solid var(--line-soft); }
+.caja-metodo-icon { font-size: 20px; width: 32px; text-align: center; }
+.caja-metodo-label { flex: 1; font-size: 13px; font-weight: 500; }
+.caja-metodo-monto { font-size: 15px; font-weight: 700; color: var(--tide-900); }
+
+/* ---------- Impresion boleta ---------- */
+@media print {
+    body * { visibility: hidden; }
+    #boleta-print, #boleta-print * { visibility: visible; }
+    #boleta-print { position: fixed; left: 0; top: 0; width: 80mm; }
+    .no-print { display: none !important; }
+}
+.boleta-wrap { font-family: 'Courier New', monospace; max-width: 300px; margin: 0 auto; font-size: 12px; color: #111; }
+.boleta-titulo { text-align: center; font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+.boleta-sub { text-align: center; font-size: 11px; color: #555; margin-bottom: 8px; }
+.boleta-linea { border-top: 1px dashed #999; margin: 6px 0; }
+.boleta-row { display: flex; justify-content: space-between; margin: 2px 0; }
+.boleta-row-item { display: flex; justify-content: space-between; margin: 3px 0; }
+.boleta-total { display: flex; justify-content: space-between; font-size: 15px; font-weight: 700; margin: 4px 0; }
+.boleta-pie { text-align: center; font-size: 11px; color: #555; margin-top: 8px; }
+
+/* ---------- Login (hero costero) ---------- */
+.login-hero {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background:
+    linear-gradient(160deg, rgba(11,54,64,0.82), rgba(19,129,140,0.55)),
+    url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+  padding: 24px;
+}
+.login-card {
+  background: var(--paper); border-radius: var(--radius-lg); box-shadow: var(--shadow-lift);
+  width: 380px; max-width: 100%; padding: 40px 34px 34px;
+  border-top: 4px solid var(--coral);
+}
+.login-eyebrow { font-size: 10px; letter-spacing: 3px; color: var(--coral); text-transform: uppercase; font-weight: 700; text-align: center; }
+.login-title { font-family: var(--font-display); font-size: 28px; font-weight: 600; color: var(--tide-900); text-align: center; margin-top: 8px; }
+.login-sub { font-size: 12.5px; color: var(--muted); text-align: center; margin-top: 6px; margin-bottom: 26px; }
